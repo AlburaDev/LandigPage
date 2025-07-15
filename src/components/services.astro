@@ -65,11 +65,11 @@ const servicesData = [
 
  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto bg-purple-50 p-6 rounded-lg shadow-lg">
     {servicesData.map((service) => (
-        <div id={service.id} class="group bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
+        <div id={service.id} class="group bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl cursor-pointer">
             <img src={service.image} alt={service.title} class="w-full h-48 object-cover"/>
             <div class="p-6">
                 <h4 class="text-xl font-semibold text-teal-800 mb-2">{service.title}</h4>
-                <div class="description-container max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-screen">
+                <div class="description-container max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-screen cursor-pointer">
                     <p class="text-gray-600 text-base mt-2">{service.description}</p>
                 </div>
             </div>
