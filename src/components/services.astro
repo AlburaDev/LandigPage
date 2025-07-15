@@ -1,55 +1,55 @@
 ---
 const servicesData = [
     {
-        image: 'src/cards/eventos.jpg',
+        image: '/cards/eventos.jpg',
         title: 'Producción de eventos corporativos',
         description: 'Coordinamos experiencias a la medida para empresas: lanzamientos, aniversarios, integraciones y celebraciones internas, ejecutadas con precisión y enfoque estratégico.',
         id:'event'
     },
     {
-        image: 'src/cards/Ferias.jpg',
+        image: '/cards/Ferias.jpg',
         title: 'Ferias y convenciones',
         description: 'Montaje y producción de ferias empresariales, comerciales y académicas con diseño, coordinación y gestión de expositores.',
         id:'feria'
     },
     {
-        image: 'src/cards/fiesta_empresa.jpg',
+        image: '/cards/fiesta_empresa.jpg',
         title: 'Fiestas de empresa',
         description: 'Celebraciones internas con identidad, coherencia y alto estándar de ejecución: desde el concepto hasta el último brindis.',
         id:'empresa'
     },
     {
-        image: 'src/cards/Deportivo.jpg',
+        image: '/cards/Deportivo.jpg',
         title: 'Eventos deportivos',
         description: 'Organización integral de carreras, torneos y activaciones deportivas con enfoque logístico, comunicacional y comercial.',
         id:'deportivo'
     },
     {
-        image: 'src/cards/Patrocinio.jpg',
+        image: '/cards/Patrocinio.jpg',
         title: 'Gestión de patrocinios',
         description: 'Diseño y ejecución de estrategias para vincular marcas y eventos de forma auténtica, rentable y de valor compartido.',
         id:'patrocinio'
     },
     {
-        image: 'src/cards/regalos_coorporativos.jpg',
+        image: '/cards/regalos_coorporativos.jpg',
         title: 'Regalos corporativos y materiales personalizados',
         description: 'Soluciones creativas y funcionales que refuerzan tu marca y transmiten cercanía a través de detalles cuidadosamente seleccionados.',
         id:'regalo'
     },
     {
-        image: 'src/cards/Bodas.png',
+        image: '/cards/Bodas.png',
         title: 'Bodas y celebraciones sociales',
         description: 'Diseñamos bodas memorables y eventos íntimos, cuidando cada detalle para reflejar la esencia de quienes celebran.',
         id:'boda'
     },
     {
-        image: 'src/cards/ambientacion.jpg',
+        image: '/cards/ambientacion.jpg',
         title: 'Decoración y ambientación',
         description: 'Creamos atmósferas únicas con diseño floral, mobiliario y estilo personalizado que elevan el impacto visual de cada evento.',
         id:'ambientacion'
     },
     {
-        image: 'src/cards/AlburaLetras.jpg',
+        image: '/cards/AlburaLetras.jpg',
         title: '',
         description: 'Diseñamos experiencias a la medida',
         id:'albura'
@@ -66,7 +66,7 @@ const servicesData = [
                 <img src={service.image} alt={service.title} class="w-full h-48 object-cover"/>
                 <div class="p-6">
                     <h4 class="text-xl font-semibold text-teal-800 mb-2">{service.title}</h4>
-                    <p class="text-gray-600 text-xl">{service.description}</p>
+                    <p class="text-gray-600 text-l">{service.description}</p>
                 </div>
             </div>
         ))}
