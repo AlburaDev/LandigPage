@@ -23,7 +23,7 @@ export default defineConfig({
   // Para Tailwind CSS, deberías instalarlo como una integración de Astro
   // en lugar de un plugin de Vite en la mayoría de los casos.
   // Si ya lo instalaste con `npx astro add tailwind`, no necesitas la parte `vite.plugins`.
-  integrations: [], // Aquí irían tus integraciones de Astro, por ejemplo: tailwind(),
+  integrations: [tailwindcss()], // Aquí irían tus integraciones de Astro, por ejemplo: tailwind(),
 
   // --- Configuración de Vite (si es necesaria para otras cosas) ---
   vite: {
