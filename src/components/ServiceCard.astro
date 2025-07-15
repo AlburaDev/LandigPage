@@ -8,10 +8,7 @@ interface Props {
 const { image, title, description, id } = Astro.props;
 const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
 ---
-<style is:global>
-  /*
-    Styles for when the card is hovered OR when it has the 'is-active' class
-  */
+<style>
   .card:hover,
   .card.is-hovering,
   .card.is-active {
@@ -19,7 +16,6 @@ const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Tailwind's shadow-2xl */
     z-index: 50;
   }
-
   /*
     Styles for the description content.
   */
@@ -68,56 +64,3 @@ const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
   </div>
 </div>
 
-<script is:inline>
-  (() => {
-    const cardElement = document.querySelector(`[data-card-id="${uniqueId}"]`);
-
-    if (!cardElement) {
-      console.warn('Card element not found for ID:', uniqueId);
-      return;
-    }
-    const imageArea = cardElement.querySelector('.image-area');
-    const descriptionContent = cardElement.querySelector('.description-content');
-    // Function to apply active styles
-    function activateCard() {
-      // Deactivate other active cards if they exist (optional: ensures only one card is open)
-      document.querySelectorAll('.card.is-active').forEach(otherCard => {
-        if (otherCard !== cardElement) {
-          otherCard.classList.remove('is-active');
-        }
-      });
-      cardElement.classList.add('is-active');
-    }
-    // Function to deactivate card
-    function deactivateCard() {
-      cardElement.classList.remove('is-active');
-    }
-    // --- Click to toggle 'is-active' class ---
-    imageArea.addEventListener('click', (event) => {
-      event.stopPropagation(); // Prevent clicks from bubbling up
-      if (cardElement.classList.contains('is-active')) {
-        deactivateCard();
-      } else {
-        activateCard();
-      }
-    });
-    // --- Close card if clicked outside ---
-    document.addEventListener('click', (event) => {
-      if (cardElement.classList.contains('is-active') && !cardElement.contains(event.target)) {
-        deactivateCard();
-      }
-    });
-    // --- Handle hover behavior ---
-    cardElement.addEventListener('mouseenter', () => {
-      if (!cardElement.classList.contains('is-active')) {
-        cardElement.classList.add('is-hovering');
-      }
-    });
-
-    cardElement.addEventListener('mouseleave', () => {
-      if (!cardElement.classList.contains('is-active')) { // Only remove if not active from click
-        cardElement.classList.remove('is-hovering');
-      }
-    });
-  })();
-</script>
