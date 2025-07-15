@@ -8,7 +8,7 @@ let base_path = '/'; // Por defecto, para desarrollo local
 // Si estamos en un entorno de GitHub Actions (producción), ajustamos la base
 // La variable de entorno GITHUB_REPOSITORY tiene el formato 'propietario/nombre-del-repositorio'
 if (process.env.GITHUB_REPOSITORY) {
-  const repoName = process.env.GITHUB_REPOSITORY.split('/')[1]; // Extrae solo el nombre del repositorio
+  const repoName = 'LandigPage' // Extrae solo el nombre del repositorio
   base_path = `/${repoName}`; // La base será /nombre-del-repositorio/
 }
 
