@@ -1,19 +1,20 @@
+// @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind'; // Import Astro's Tailwind integration
+import tailwindcss from '@tailwindcss/vite'; // Note: Tailwind CSS is usually an Astro integration, not a Vite plugin for Astro.
 
 export default defineConfig({
-  // Full URL of your deployed site on GitHub Pages.
-  // If your repository is 'alburadev/LandigPage', your URL will be 'https://alburadev.github.io/LandigPage'.
+  // URL completa de tu sitio desplegado en GitHub Pages.
+  // Si tu repositorio es 'alburadev/LandigPage', tu URL será 'https://alburadev.github.io/LandigPage'.
   site: 'https://alburadev.github.io/LandigPage',
 
   base: '/LandigPage/',
 
-  integrations: [tailwind()], // Correctly add Tailwind CSS as an Astro integration
-  // vite: {
-  //   plugins: [tailwindcss()] // This line is not needed and causes the error
-  // },
+  integrations: [], // Aquí irían tus integraciones de Astro, por ejemplo: tailwind(),
+  vite: {
+     plugins: [tailwindcss()] // Esta línea generalmente no es necesaria si usas la integración de Astro.
+  },
 
   devToolbar: {
-    enabled: false,
+    enabled: false, 
   },
 });
