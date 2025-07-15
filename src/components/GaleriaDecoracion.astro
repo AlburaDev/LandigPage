@@ -61,77 +61,17 @@ const images = [
 
 
 ---
+<h1 class="text-center w-full my-8 text-4xl lg:text-5xl">Galería de Decoración</h1>
 
-
-
-
-
-<style>
-      .gallery-grid {
-    display: grid;
-    /* Mantiene 3 columnas de igual ancho */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.2rem;
-    padding: 2rem;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 500px; /* Mantener la altura para imágenes grandes */
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.04);
-}
-
-/* Media query para pantallas más pequeñas */
-@media (max-width: 992px) { /* Ajustar el breakpoint si es necesario */
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
-        padding: 1rem;
-    }
-    .gallery-grid img {
-        height: 300px; /* Altura ajustada para tablets */
-    }
-}
-
-@media (max-width: 600px) { /* Media query para móviles */
-    .gallery-grid {
-        grid-template-columns: 1fr; /* 1 columna en móviles */
-        padding: 0.8rem;
-    }
-    .gallery-grid img {
-        height: 200px; /* Altura ajustada para móviles */
-    }
-}
-    </style>
-  
-  </head>
-
-
-
-
-
-   
-	
-  <body>
-    
-
-    <h1 style="text-align: center; width: 100%; margin: 2rem 0; font-size: 2.5rem;">Galería de Decoración</h1>
-
-    <div class="gallery-grid ">
-      {images.map((src) => (
-        <img src={src} alt="Decoración" loading="lazy" />
-           
-
-      ))}
-    </div>
-
-  </body>
-
- 
-</html>
+<div class="grid grid-cols-1 gap-4 p-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5 lg:p-8">
+    {images.map((src) => (
+        <img
+            src={src}
+            alt="Decoración"
+            loading="lazy"
+            class="w-full h-48 object-cover rounded-xl shadow-md transition-transform duration-200 hover:scale-105
+                   sm:h-72
+                   lg:h-96"
+        />
+    ))}
+</div>
