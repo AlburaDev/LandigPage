@@ -63,17 +63,25 @@ const servicesData = [
     <h1 class="text-center text-teal-900 text-4xl sm:text-5xl mb-4">Nuestra oferta de servicios</h1>
     <h3 class="text-center text-teal-700 text-lg sm:text-xl font-medium mb-8">capturamos la esencia de cada ocasión.</h3>
 
- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto bg-purple-50 p-6 rounded-lg shadow-lg">
-    {servicesData.map((service) => (
-        <div id={service.id} class="group bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl ">
-            <img src={service.image} alt={service.title} class="w-full h-48 object-cover"/>
-            <div class="p-6">
-                <h4 class="text-xl font-semibold text-teal-800 mb-2">{service.title}</h4>
-                <div class="description-container max-h-0 overflow-hidden transition-all duration-300 group-hover:max-h-screen cursor-pointer">
-                    <p class="text-gray-600 text-base mt-2">{service.description}</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto bg-purple-50 p-6 rounded-lg shadow-lg">
+        {servicesData.map((service) => (
+            <div
+                id={service.id}
+                class="group bg-white rounded-lg shadow-md overflow-hidden
+                       transform transition duration-300 ease-in-out
+                       hover:scale-105 hover:shadow-xl
+                       active:scale-105 active:shadow-xl
+                       focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50"
+                tabindex="0"
+            >
+                <img src={service.image} alt={service.title} class="w-full h-48 object-cover"/>
+                <div class="p-6">
+                    <h4 class="text-xl font-semibold text-teal-800 mb-2">{service.title}</h4>
+                    <div class="description-container max-h-0 overflow-hidden transition-all duration-300 ease-in-out group-hover:max-h-screen group-active:max-h-screen">
+                        <p class="text-gray-600 text-base mt-2">{service.description}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    ))}
-</div>
+        ))}
+    </div>
 </section>
