@@ -5,7 +5,6 @@ interface Props {
   description: string;
   id?: string; // Add an optional ID for unique targeting
 }
-
 const { image, title, description, id } = Astro.props;
 const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
 ---
@@ -40,22 +39,18 @@ const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
 </div>
 
 <script is:inline>
-  // Self-executing anonymous function to create a new scope for each component
   (() => {
-    // We can get the current script's parent element to find the card,
-    // or rely on the uniqueId passed from Astro. Let's use uniqueId for robustness.
-    const cardElement = document.querySelector(`[data-card-id="${'${uniqueId}'}"]`);
+    // Correct way to inject Astro variable into inline script string
+    // Astro will serialize `uniqueId` into a string literal here
+    const cardElement = document.querySelector(`[data-card-id="${uniqueId}"]`);
 
-    // Only proceed if the cardElement is actually found (handles potential timing issues)
     if (!cardElement) {
-      console.warn('Card element not found for ID:', '${uniqueId}');
-      return; // Exit if element not found
+      // Also correct here
+      console.warn('Card element not found for ID:', uniqueId);
+      return;
     }
-
     const imageArea = cardElement.querySelector('.image-area');
     const descriptionContent = cardElement.querySelector('.description-content');
-    const imageOverlay = imageArea.querySelector('.bg-black'); // Although not used directly in JS logic here, good to keep for clarity
-
     // Function to apply active styles
     function activateCard() {
       // Deactivate other active cards if they exist (optional: ensures only one card is open)
@@ -66,12 +61,10 @@ const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
       });
       cardElement.classList.add('is-active');
     }
-
     // Function to deactivate card
     function deactivateCard() {
       cardElement.classList.remove('is-active');
     }
-
     // --- Click to toggle 'is-active' class ---
     imageArea.addEventListener('click', (event) => {
       event.stopPropagation(); // Prevent clicks from bubbling up
@@ -81,14 +74,12 @@ const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
         activateCard();
       }
     });
-
     // --- Close card if clicked outside ---
     document.addEventListener('click', (event) => {
       if (cardElement.classList.contains('is-active') && !cardElement.contains(event.target)) {
         deactivateCard();
       }
     });
-
     // --- Handle hover behavior ---
     cardElement.addEventListener('mouseenter', () => {
       if (!cardElement.classList.contains('is-active')) {
@@ -101,7 +92,7 @@ const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
         cardElement.classList.remove('is-hovering');
       }
     });
-  })(); // End of the IIFE
+  })();
 </script>
 
 <style is:global>
