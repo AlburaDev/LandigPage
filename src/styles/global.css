@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@plugin "@midudev/tailwind-animations";
+
+/* Custom global styles */
+header {
+    font-family: 'Quicksand Variable','sans-serif';
+    background-color: #f9fafb;
+    color: #111827;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  font-family: 'Quicksand Variable', sans-serif;
+}

@@ -1,0 +1,22 @@
+---
+// Importa los datos de los servicios
+import { servicesData } from '../Data/ServiceData'; // Ajusta la ruta si es necesario
+// Importa el componente de la tarjeta
+import ServiceCard from '../components/ServiceCard.astro';
+---
+
+<section id="services" class="w-full px-4 py-8 bg-white rounded-lg shadow-lg">
+    <h1 class="text-center text-teal-900 text-4xl sm:text-5xl mb-4">Nuestra oferta de servicios</h1>
+    <h3 class="text-center text-teal-700 text-lg sm:text-xl font-medium mb-8">capturamos la esencia de cada ocasión.</h3>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto bg-purple-50 p-6 rounded-lg shadow-lg">
+        {servicesData.map((service) => (
+            <ServiceCard
+                image={service.image}
+                title={service.title}
+                description={service.description}
+            />
+        ))}
+
+        </div>
+</section>
