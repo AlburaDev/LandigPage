@@ -13,7 +13,7 @@ export default defineConfig({
   // si el contenido está en la raíz del repositorio, usa '/'.
   // Si tu sitio estuviera en un subdirectorio (ej: alburaproducciones.github.io/mi-repo/),
   // deberías usar '/mi-repo/'.
-  base: '/',
+  base: 'LandigPage',
 
   // Define el tipo de salida de la construcción.
   // 'static' es el valor por defecto y es necesario para GitHub Pages.
