@@ -19,7 +19,7 @@ export default defineConfig({
   // Asegúrate de que esta URL sea la raíz de tu sitio en GitHub Pages.
   // Si tu repositorio es 'alburadev/LandigPage', tu URL de GitHub Pages será
   // 'https://alburadev.github.io/LandigPage'.
-  site: 'https://alburadev.github.io/LandigPage/', // Mantén esto como la URL base de tu usuario/organización si tienes un repo de proyecto.
+  site: 'https://alburadev.github.io', // Mantén esto como la URL base de tu usuario/organización si tienes un repo de proyecto.
 
   // Ruta base de tu sitio.
   // Esto es CRUCIAL para que los activos (CSS, JS, imágenes) se carguen correctamente.
