@@ -30,8 +30,8 @@ const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
     </div>
 
     <div class="description-content bg-white/80 p-4 text-gray-800 flex items-center justify-center text-center
-                max-h-0 opacity-0 overflow-hidden
-                transition-[max-height,opacity] duration-500 ease-in-out">
+                 max-h-0 opacity-0 overflow-hidden
+                 transition-[max-height,opacity] duration-500 ease-in-out">
       <p class="text-md text-justify leading-relaxed">{description}</p>
     </div>
 
@@ -40,12 +40,9 @@ const uniqueId = id || `card-${Math.random().toString(36).substring(2, 9)}`;
 
 <script is:inline>
   (() => {
-    // Correct way to inject Astro variable into inline script string
-    // Astro will serialize `uniqueId` into a string literal here
     const cardElement = document.querySelector(`[data-card-id="${uniqueId}"]`);
 
     if (!cardElement) {
-      // Also correct here
       console.warn('Card element not found for ID:', uniqueId);
       return;
     }
