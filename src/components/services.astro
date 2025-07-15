@@ -68,8 +68,9 @@ const servicesData = [
             <div
                 id={service.id}
                 class="group bg-white rounded-lg shadow-md overflow-hidden
-                       transform transition duration-300 ease-in-out
+                       transform transition-all duration-0 ease-linear
                        hover:scale-105 hover:shadow-xl
+                       focus-within:scale-105 focus-within:shadow-xl
                        active:scale-105 active:shadow-xl
                        focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50"
                 tabindex="0"
@@ -77,7 +78,8 @@ const servicesData = [
                 <img src={service.image} alt={service.title} class="w-full h-48 object-cover"/>
                 <div class="p-6">
                     <h4 class="text-xl font-semibold text-teal-800 mb-2">{service.title}</h4>
-                    <div class="description-container max-h-0 overflow-hidden transition-all duration-900 ease-in-out group-hover:max-h-screen group-active:max-h-screen">
+                    {/* CAMBIO CLAVE AQUÍ: Usamos group-focus-within para mantener la descripción visible */}
+                    <div class="description-container max-h-0 overflow-hidden transition-all duration-[2000ms] ease-in-out group-hover:max-h-screen group-active:max-h-screen group-focus-within:max-h-screen">
                         <p class="text-gray-600 text-base mt-2">{service.description}</p>
                     </div>
                 </div>
