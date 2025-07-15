@@ -2,18 +2,30 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite'; // Note: Tailwind CSS is usually an Astro integration, not a Vite plugin for Astro.
 
+// Determina la ruta base dinámicamente
+let base_path = '/'; // Por defecto, para desarrollo local
+
+// Si estamos en un entorno de GitHub Actions (producción), ajustamos la base
+// La variable de entorno GITHUB_REPOSITORY tiene el formato 'propietario/nombre-del-repositorio'
+if (process.env.GITHUB_REPOSITORY) {
+  const repoName = process.env.GITHUB_REPOSITORY.split('/')[1]; // Extrae solo el nombre del repositorio
+  base_path = `/${repoName}`; // La base será /nombre-del-repositorio/
+}
+
 // https://astro.build/config
 export default defineConfig({
   // URL completa de tu sitio desplegado.
   // Es crucial para la generación de sitemaps, RSS feeds, etc.
-  site: 'https://alburadev.github.io',
+  // Asegúrate de que esta URL sea la raíz de tu sitio en GitHub Pages.
+  // Si tu repositorio es 'alburadev/LandigPage', tu URL de GitHub Pages será
+  // 'https://alburadev.github.io/LandigPage'.
+  site: 'https://alburadev.github.io', // Mantén esto como la URL base de tu usuario/organización si tienes un repo de proyecto.
 
   // Ruta base de tu sitio.
-  // Para un sitio de GitHub Pages de usuario/organización (alburaproducciones.github.io),
-  // si el contenido está en la raíz del repositorio, usa '/'.
-  // Si tu sitio estuviera en un subdirectorio (ej: alburaproducciones.github.io/mi-repo/),
-  // deberías usar '/mi-repo/'.
-  base: 'LandigPage',
+  // Esto es CRUCIAL para que los activos (CSS, JS, imágenes) se carguen correctamente.
+  // En local, será '/', lo que funciona bien.
+  // En GitHub Pages, será '/nombre-del-repositorio/' (ej: '/LandigPage/').
+  base: base_path,
 
   // Define el tipo de salida de la construcción.
   // 'static' es el valor por defecto y es necesario para GitHub Pages.
