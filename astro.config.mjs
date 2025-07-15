@@ -2,24 +2,26 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite'; // Note: Tailwind CSS is usually an Astro integration, not a Vite plugin for Astro.
 
-// Determina la ruta base dinámicamente
-let base_path = '/'; // Por defecto, para desarrollo local
 
-// Si estamos en un entorno de GitHub Actions (producción), ajustamos la base
+// Determina la ruta base y la URL completa del sitio dinámicamente
+let base_path = '/'; // Por defecto, para desarrollo local
+let site_url = 'https://alburadev.github.io'; // URL base del usuario/organización en GitHub Pages
+
+// Si estamos en un entorno de GitHub Actions (producción), ajustamos la base y el sitio
 // La variable de entorno GITHUB_REPOSITORY tiene el formato 'propietario/nombre-del-repositorio'
 if (process.env.GITHUB_REPOSITORY) {
-  const repoName = process.env.GITHUB_REPOSITORY.split('/')[1]; // Extrae solo el nombre del repositorio
-  base_path = `/${repoName}`; // La base será /nombre-del-repositorio/
+  const repoName = process.env.GITHUB_REPOSITORY.split('/')[1]; // Extrae solo el nombre del repositorio (ej: 'LandigPage')
+  base_path = `/${repoName}/`; // La base será /nombre-del-repositorio/ (¡con barra final!)
+  site_url = `https://alburadev.github.io/${repoName}`; // El sitio completo incluirá el nombre del repositorio
 }
 
 // https://astro.build/config
 export default defineConfig({
-  // URL completa de tu sitio desplegado.
-  // Es crucial para la generación de sitemaps, RSS feeds, etc.
-  // Asegúrate de que esta URL sea la raíz de tu sitio en GitHub Pages.
-  // Si tu repositorio es 'alburadev/LandigPage', tu URL de GitHub Pages será
-  // 'https://alburadev.github.io/LandigPage'.
-  site: 'https://alburadev.github.io', // Mantén esto como la URL base de tu usuario/organización si tienes un repo de proyecto.
+ // URL completa de tu sitio desplegado.
+  // Es crucial para la generación de sitemaps, RSS feeds, y para que Astro resuelva correctamente las URLs absolutas.
+  // Para un repositorio de proyecto en GitHub Pages (ej: 'alburadev/LandigPage'),
+  // la URL debe ser 'https://alburadev.github.io/LandigPage'.
+  site: site_url,
 
   // Ruta base de tu sitio.
   // Esto es CRUCIAL para que los activos (CSS, JS, imágenes) se carguen correctamente.
