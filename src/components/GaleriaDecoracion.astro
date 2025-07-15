@@ -1,72 +1,67 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Footer from "@/components/Footer.astro";
-import Header from "@/components/Header.astro";
-
+// Define un array de rutas de imágenes.
+// Las imágenes ahora se esperan en la carpeta `public/images/`.
+// Las rutas deben ser relativas a la raíz del sitio (empezando con '/').
 const images = [
-    'src/images/decor1.jpeg',
-    'src/images/decor2.jpeg',
-    'src/images/decor3.jpeg',
-    'src/images/decor4.jpeg',
-    'src/images/decor5.jpeg',
-    'src/images/decor6.jpeg',
-    'src/images/decor7.jpeg',
-    'src/images/decor8.jpeg',
-    'src/images/decor9.jpeg',
-    'src/images/decor10.jpeg',
-    'src/images/decor11.jpeg',
-    'src/images/decor12.jpeg',
-    'src/images/decor13.jpeg',
-    'src/images/decor14.jpeg',
-    'src/images/decor15.jpeg',
-    'src/images/decor16.jpeg',
-    'src/images/decor17.jpeg',
-    'src/images/decor18.jpeg',
-    'src/images/decor19.jpeg',
-    'src/images/decor20.jpeg',
-    'src/images/decor21.jpeg',
-    'src/images/decor22.jpeg',
-    'src/images/decor23.jpeg',
-    'src/images/decor24.jpeg',
-    'src/images/decor25.jpeg',
-    'src/images/decor26.jpeg',
-    'src/images/decor27.jpeg',
-    'src/images/decor28.jpeg',
-    'src/images/decor29.jpeg',
-    'src/images/decor30.jpeg',
-    'src/images/decor31.jpeg',
-    'src/images/decor32.jpeg',
-    'src/images/decor33.jpeg',
-    'src/images/decor34.jpeg',
-    'src/images/decor35.jpeg',
-    'src/images/decor36.jpeg',
-    'src/images/decor37.jpeg',
-    'src/images/decor38.jpeg',
-    'src/images/decor39.jpeg',
-    'src/images/decor40.jpeg',
-    'src/images/decor41.jpeg',
-    'src/images/decor42.jpeg',
-    'src/images/decor43.jpeg',
-    'src/images/decor44.jpeg',
-    'src/images/decor45.jpeg',
-    'src/images/decor46.jpeg',
-    'src/images/decor47.jpeg',
-    'src/images/decor48.jpeg',
-    'src/images/decor49.jpeg',
-    'src/images/decor23.jpeg',
-
-      
+    '/images/decor1.jpeg',
+    '/images/decor2.jpeg',
+    '/images/decor3.jpeg',
+    '/images/decor4.jpeg',
+    '/images/decor5.jpeg',
+    '/images/decor6.jpeg',
+    '/images/decor7.jpeg',
+    '/images/decor8.jpeg',
+    '/images/decor9.jpeg',
+    '/images/decor10.jpeg',
+    '/images/decor11.jpeg',
+    '/images/decor12.jpeg',
+    '/images/decor13.jpeg',
+    '/images/decor14.jpeg',
+    '/images/decor15.jpeg',
+    '/images/decor16.jpeg',
+    '/images/decor17.jpeg',
+    '/images/decor18.jpeg',
+    '/images/decor19.jpeg',
+    '/images/decor20.jpeg',
+    '/images/decor21.jpeg',
+    '/images/decor22.jpeg',
+    '/images/decor23.jpeg',
+    '/images/decor24.jpeg',
+    '/images/decor25.jpeg',
+    '/images/decor26.jpeg',
+    '/images/decor27.jpeg',
+    '/images/decor28.jpeg',
+    '/images/decor29.jpeg',
+    '/images/decor30.jpeg',
+    '/images/decor31.jpeg',
+    '/images/decor32.jpeg',
+    '/images/decor33.jpeg',
+    '/images/decor34.jpeg',
+    '/images/decor35.jpeg',
+    '/images/decor36.jpeg',
+    '/images/decor37.jpeg',
+    '/images/decor38.jpeg',
+    '/images/decor39.jpeg',
+    '/images/decor40.jpeg',
+    '/images/decor41.jpeg',
+    '/images/decor42.jpeg',
+    '/images/decor43.jpeg',
+    '/images/decor44.jpeg',
+    '/images/decor45.jpeg',
+    '/images/decor46.jpeg',
+    '/images/decor47.jpeg',
+    '/images/decor48.jpeg',
+    '/images/decor49.jpeg',
+    '/images/decor23.jpeg', 
 ];
-
-
-
 ---
+
 <h1 class="text-center w-full my-8 text-4xl lg:text-5xl">Galería de Decoración</h1>
 
 <div class="grid grid-cols-1 gap-4 p-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5 lg:p-8">
     {images.map((src) => (
         <img
-            src={src}
+            src={src} 
             alt="Decoración"
             loading="lazy"
             class="w-full h-48 object-cover rounded-xl shadow-md transition-transform duration-200 hover:scale-105
