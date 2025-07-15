@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   // URL completa de tu sitio desplegado.
   // Es crucial para la generación de sitemaps, RSS feeds, etc.
-  site: 'https://alburadev.github.io/LandigPage/',
+  site: 'https://alburadev.github.io',
 
   // Ruta base de tu sitio.
   // Para un sitio de GitHub Pages de usuario/organización (alburaproducciones.github.io),
