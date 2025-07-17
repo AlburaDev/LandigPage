@@ -38,11 +38,11 @@
                 if (window.scrollY > lastScrollY && window.scrollY > headerHeight) {
                     // Scrolling hacia abajo: esconde el header
                     mainHeader.style.top = `-${headerHeight}px`; // Mueve el header completamente fuera de la vista
-                    mainHeader.style.opacity = '0'; // También lo hace transparente
+                  
                 } else {
                     // Scrolling hacia arriba: muestra el header
                     mainHeader.style.top = '0'; // Regresa el header a su posición original
-                    mainHeader.style.opacity = '1'; // Lo hace visible
+               
                 }
                 lastScrollY = window.scrollY; // Actualiza la última posición de scroll
             });
