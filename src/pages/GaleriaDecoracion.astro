@@ -56,12 +56,6 @@ const images = [
     '/LandigPage/images/decor23.jpeg',
 ];
 ---
-<Layout title="Albura | Galería de Decoración" >
-
-
-
-
-
 <style>
       .gallery-grid {
     display: grid;
@@ -105,30 +99,16 @@ const images = [
     }
 }
     </style>
-  
-  </head>
 
+    <Layout title="Albura | Galería de Decoración" >
+    <section id="GaleriaDecoracion">
+        <h1 style="text-align: center; width: 100%; margin: 2rem 0; font-size: 2.5rem;">Galería de Decoración</h1>
 
+        <div class="gallery-grid ">
+        {images.map((src) => (
+            <img src={src} alt="Decoración" loading="lazy" />
+        ))}
 
-
-
-   
-	
-  <body>
-    
-
-    <h1 style="text-align: center; width: 100%; margin: 2rem 0; font-size: 2.5rem;">Galería de Decoración</h1>
-
-    <div class="gallery-grid ">
-      {images.map((src) => (
-        <img src={src} alt="Decoración" loading="lazy" />
-           
-
-      ))}
-    </div>
-
-  </body>
-
- 
-</html>
-</Layout>
+        </div>
+    </section>
+    </Layout>
