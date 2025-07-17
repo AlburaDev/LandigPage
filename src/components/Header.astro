@@ -1,4 +1,4 @@
-<header id="mainHeader" class="main-header flex justify-center items-center bg-gradient-to-br from-purple-300/60 to-purple-100/60 text-center sticky top-0 z-50 rounded-b-2xl transition-all duration-300 py-1 px-6 md:px-8 backdrop-blur-md transform translate-y-0">
+<header id="mainHeader" class="main-header flex justify-center items-center bg-gradient-to-br from-purple-300/60 to-purple-100/60 text-center sticky top-0 z-50 rounded-b-2xl transition-all duration-300 py-1 px-6 md:px-8 backdrop-blur-md">
     <div class="container mx-auto flex justify-between items-center relative">
         <a href="/" class="flex justify-center py-1 items-center animate-pulsing ">
             <img src="/LandigPage/assets/AlburaLogo.svg" alt="Logo" class="object-contain w-32 h-10 hover:scale-106 " />
@@ -25,6 +25,7 @@
         const mainHeader = document.getElementById('mainHeader');
 
         let lastScrollY = window.scrollY; // Guarda la última posición de scroll
+        let headerHeight = mainHeader.offsetHeight; // Obtiene la altura actual del header
 
         if (mobileMenuButton && mainNav && mainHeader) {
             // Lógica para el menú móvil
@@ -34,12 +35,14 @@
 
             // Lógica para el header inteligente (scroll up/down)
             window.addEventListener('scroll', () => {
-                if (window.scrollY > lastScrollY) {
+                if (window.scrollY > lastScrollY && window.scrollY > headerHeight) {
                     // Scrolling hacia abajo: esconde el header
-                    mainHeader.classList.add('-translate-y-full'); // Mueve el header completamente fuera de la vista
+                    mainHeader.style.top = `-${headerHeight}px`; // Mueve el header completamente fuera de la vista
+                    mainHeader.style.opacity = '0'; // También lo hace transparente
                 } else {
                     // Scrolling hacia arriba: muestra el header
-                    mainHeader.classList.remove('-translate-y-full'); // Regresa el header a su posición original
+                    mainHeader.style.top = '0'; // Regresa el header a su posición original
+                    mainHeader.style.opacity = '1'; // Lo hace visible
                 }
                 lastScrollY = window.scrollY; // Actualiza la última posición de scroll
             });
