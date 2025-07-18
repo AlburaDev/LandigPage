@@ -1,0 +1,110 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import '@/styles/global.css';
+import '@fontsource-variable/quicksand';
+
+const images = [
+    '/LandigPage/bodas/bodas1.jpeg',
+    '/LandigPage/bodas/bodas2.jpeg',
+    '/LandigPage/bodas/bodas3.jpeg',
+'/LandigPage/bodas/bodas4.jpeg',
+'/LandigPage/bodas/bodas5.jpeg',
+'/LandigPage/bodas/bodas6.jpeg',
+'/LandigPage/bodas/bodas7.jpeg',
+'/LandigPage/bodas/bodas8.jpeg',
+'/LandigPage/bodas/bodas9.jpeg',
+'/LandigPage/bodas/bodas10.jpeg',
+'/LandigPage/bodas/bodas11.jpeg',
+'/LandigPage/bodas/bodas12.jpeg',
+'/LandigPage/bodas/bodas13.jpeg',
+'/LandigPage/bodas/bodas14.jpeg',
+'/LandigPage/bodas/bodas15.jpeg',
+'/LandigPage/bodas/bodas16.jpeg',
+'/LandigPage/bodas/bodas17.jpeg',
+'/LandigPage/bodas/bodas18.jpeg',
+'/LandigPage/bodas/bodas19.jpeg',
+'/LandigPage/bodas/bodas20.jpeg',
+'/LandigPage/bodas/bodas21.jpeg',
+'/LandigPage/bodas/bodas22.jpeg',
+'/LandigPage/bodas/bodas23.jpeg',
+'/LandigPage/bodas/bodas24.jpeg',
+'/LandigPage/bodas/bodas25.jpeg',
+'/LandigPage/bodas/bodas26.jpeg',
+'/LandigPage/bodas/bodas27.jpeg',
+'/LandigPage/bodas/bodas28.jpeg',
+'/LandigPage/bodas/bodas29.jpeg',
+'/LandigPage/bodas/bodas30.jpeg',
+'/LandigPage/bodas/bodas31.jpeg',
+'/LandigPage/bodas/bodas32.jpeg',
+'/LandigPage/bodas/bodas33.jpeg',
+'/LandigPage/bodas/bodas34.jpeg',
+'/LandigPage/bodas/bodas35.jpeg',
+'/LandigPage/bodas/bodas36.jpeg',
+'/LandigPage/bodas/bodas37.jpeg',
+'/LandigPage/bodas/bodas38.jpeg',
+'/LandigPage/bodas/bodas39.jpeg',
+'/LandigPage/bodas/bodas40.jpeg',
+'/LandigPage/bodas/bodas41.jpeg',
+'/LandigPage/bodas/bodas42.jpeg',
+'/LandigPage/bodas/bodas43.jpeg',
+'/LandigPage/bodas/bodas44.jpeg',
+'/LandigPage/bodas/bodas45.jpeg',
+'/LandigPage/bodas/bodas46.jpeg'
+];
+---
+<style>
+      .gallery-grid {
+    display: grid;
+    /* Mantiene 3 columnas de igual ancho */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    padding: 2rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 500px; /* Mantener la altura para imágenes grandes */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.04);
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 992px) { /* Ajustar el breakpoint si es necesario */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+        padding: 1rem;
+    }
+    .gallery-grid img {
+        height: 300px; /* Altura ajustada para tablets */
+    }
+}
+
+@media (max-width: 600px) { /* Media query para móviles */
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+        padding: 0.8rem;
+    }
+    .gallery-grid img {
+        height: 200px; /* Altura ajustada para móviles */
+    }
+}
+    </style>
+
+    <Layout title="Albura | Galería de Bodas" >
+    <section id="GaleriaBodas">
+        <h1 style="text-align: center; width: 100%; margin: 2rem 0; font-size: 2.5rem;">Galería de Bodas</h1>
+
+        <div class="gallery-grid ">
+        {images.map((src) => (
+            <img src={src} alt="Bodas" loading="lazy" />
+        ))}
+
+        </div>
+    </section>
+    </Layout>

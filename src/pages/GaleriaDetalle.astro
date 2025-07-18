@@ -1,0 +1,114 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import '@/styles/global.css';
+import '@fontsource-variable/quicksand';
+
+const images = [
+    '/LandigPage/detalles/detalle01.jpeg',
+    '/LandigPage/detalles/detalle02.jpeg',
+    '/LandigPage/detalles/detalle03.jpeg',
+'/LandigPage/detalles/detalle04.jpeg',
+'/LandigPage/detalles/detalle05.jpeg',
+'/LandigPage/detalles/detalle06.jpeg',
+'/LandigPage/detalles/detalle07.jpeg',
+'/LandigPage/detalles/detalle08.jpeg',
+'/LandigPage/detalles/detalle09.jpeg',
+'/LandigPage/detalles/detalle10.jpeg',
+'/LandigPage/detalles/detalle11.jpeg',
+'/LandigPage/detalles/detalle12.jpeg',
+'/LandigPage/detalles/detalle13.jpeg',
+'/LandigPage/detalles/detalle14.jpeg',
+'/LandigPage/detalles/detalle15.jpeg',
+'/LandigPage/detalles/detalle16.jpeg',
+'/LandigPage/detalles/detalle17.jpeg',
+'/LandigPage/detalles/detalle18.jpeg',
+'/LandigPage/detalles/detalle19.jpeg',
+'/LandigPage/detalles/detalle20.jpeg',
+'/LandigPage/detalles/detalle21.jpeg',
+'/LandigPage/detalles/detalle22.jpeg',
+'/LandigPage/detalles/detalle23.jpeg',
+'/LandigPage/detalles/detalle24.jpeg',
+'/LandigPage/detalles/detalle25.jpeg',
+'/LandigPage/detalles/detalle26.jpeg',
+'/LandigPage/detalles/detalle27.jpeg',
+'/LandigPage/detalles/detalle28.jpeg',
+'/LandigPage/detalles/detalle29.jpeg',
+'/LandigPage/detalles/detalle30.jpeg',
+'/LandigPage/detalles/detalle31.jpeg',
+'/LandigPage/detalles/detalle32.jpeg',
+'/LandigPage/detalles/detalle33.jpeg',
+'/LandigPage/detalles/detalle34.jpeg',
+'/LandigPage/detalles/detalle35.jpeg',
+'/LandigPage/detalles/detalle36.jpeg',
+'/LandigPage/detalles/detalle37.jpeg',
+'/LandigPage/detalles/detalle38.jpeg',
+'/LandigPage/detalles/detalle39.jpeg',
+'/LandigPage/detalles/detalle40.jpeg',
+'/LandigPage/detalles/detalle41.jpeg',
+'/LandigPage/detalles/detalle42.jpeg',
+'/LandigPage/detalles/detalle43.jpeg',
+'/LandigPage/detalles/detalle44.jpeg',
+'/LandigPage/detalles/detalle45.jpeg',
+'/LandigPage/detalles/detalle46.jpeg',
+'/LandigPage/detalles/detalle47.jpeg',
+'/LandigPage/detalles/detalle48.jpeg',
+'/LandigPage/detalles/detalle49.jpeg',
+'/LandigPage/detalles/detalle50.jpeg'
+];
+---
+<style>
+      .gallery-grid {
+    display: grid;
+    /* Mantiene 3 columnas de igual ancho */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    padding: 2rem;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 500px; /* Mantener la altura para imágenes grandes */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.04);
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 992px) { /* Ajustar el breakpoint si es necesario */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+        padding: 1rem;
+    }
+    .gallery-grid img {
+        height: 300px; /* Altura ajustada para tablets */
+    }
+}
+
+@media (max-width: 600px) { /* Media query para móviles */
+    .gallery-grid {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+        padding: 0.8rem;
+    }
+    .gallery-grid img {
+        height: 200px; /* Altura ajustada para móviles */
+    }
+}
+    </style>
+
+    <Layout title="Albura | Galería de Decoración" >
+    <section id="GaleriaDecoracion">
+        <h1 style="text-align: center; width: 100%; margin: 2rem 0; font-size: 2.5rem;">Galería de Detalles</h1>
+
+        <div class="gallery-grid ">
+        {images.map((src) => (
+            <img src={src} alt="Decoración" loading="lazy" />
+        ))}
+
+        </div>
+    </section>
+    </Layout>
