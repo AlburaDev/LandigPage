@@ -96,15 +96,16 @@ const images = [
     </style>
 
     <Layout title="Albura | Galería de Bodas" >
-    <section id="GaleriaBodas"><img
-            src="/LandigPage/cards/Bodas.jpg"
-            alt="Hero Boda"
-            class="w-full h-[30vh] object-cover rounded-b-lg brightness-
-            30 mt-[-15px]" />
-        <div class="absolute inset-0 flex flex-col items-center justify-center p-2 mt-[-40px]">
-            <h1 style="text-align: center; width: 100%; margin: 2rem 0; font-size: 2.5rem;">
-                Galería de Bodas</h1>
-        </div>
+   <section id="GaleriaBodas" class="relative">
+    <img
+        src="/LandigPage/cards/Bodas.jpg"
+        alt="Hero Boda"
+        class="w-full h-[30vh] object-cover rounded-b-lg brightness-50" />
+    <div class="absolute inset-0 flex flex-col items-center justify-center p-2">
+        <h1 class="text-white text-center text-4xl sm:text-5xl md:text-6xl font-bold">
+            Galería de Bodas
+        </h1>
+    </div>
         <div class="gallery-grid ">
         {images.map((src) => (
             <img src={src} alt="Bodas" loading="lazy" />
