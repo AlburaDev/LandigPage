@@ -103,11 +103,13 @@ const images = [
     <Layout title="Albura | Galería de Decoración" >
     <section id="GaleriaDecoracion"><img
             src="/LandigPage/detalles/detalle40.jpeg"
-            alt="Hero principal"
+            alt="Hero Detalle"
             class="w-full h-[30vh] object-cover rounded-b-lg brightness-
             30 mt-[-15px]" />
-        <h1 style="text-align: center; width: 100%; margin: 2rem 0; font-size: 2.5rem;">Galería de Detalles</h1>
-
+        <div class="absolute inset-0 flex flex-col items-center justify-center p-8">
+            <h1 style="text-align: center; width: 100%; margin: 2rem 0; font-size: 2.5rem;">
+                Galería de Detalles</h1>
+        </div>
         <div class="gallery-grid ">
         {images.map((src) => (
             <img src={src} alt="Decoración" loading="lazy" />
